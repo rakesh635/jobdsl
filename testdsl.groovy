@@ -1,6 +1,6 @@
 job('test-job') {
     scm {
-        git('git://github.com/quidryan/aws-sdk-test.git')
+        git($repourl)
     }
     triggers {
         scm('*/15 * * * *')
@@ -11,7 +11,7 @@ job('test-job') {
 }
 job('DSL-Tutorial-1-Test') {
     scm {
-        git('git://github.com/quidryan/aws-sdk-test.git')
+        git($repourl)
     }
     triggers {
         scm('H/15 * * * *')
