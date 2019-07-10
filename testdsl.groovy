@@ -1,6 +1,6 @@
 job('test-job') {
     scm {
-        git($repourl)
+        git(${repourl})
     }
     triggers {
         scm('*/15 * * * *')
@@ -11,7 +11,7 @@ job('test-job') {
 }
 job('DSL-Tutorial-1-Test') {
     scm {
-        git($repourl)
+        git(${repourl})
     }
     triggers {
         scm('H/15 * * * *')
