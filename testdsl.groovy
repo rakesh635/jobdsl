@@ -11,7 +11,7 @@ job('test-job') {
 }
 job('DSL-Tutorial-1-Test') {
     scm {
-        git('https://github.com/rakesh635/hello-phpunit-world.git')
+        git("$repourl")
     }
     triggers {
         scm('H/15 * * * *')
