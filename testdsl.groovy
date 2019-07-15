@@ -1,6 +1,6 @@
 job('test-job') {
     scm {
-      git('$repourl')
+      git("$repourl")
     }
     triggers {
         scm('*/15 * * * *')
