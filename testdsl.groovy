@@ -23,14 +23,23 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
         }
     }
     
-    job("$pipelinename"+"_job") {
+    job('$pipelinename'+'_job') {
         logRotator(-1, 10)
         jdk('defaultJDK')
+        maven("maven3.3.9")
         scm {
-            github("$repourl", "$branch")
+            git {
+                remote {
+                    name('Repo URL')
+                    url("$repourl")
+                }
+                extensions {
+                    cleanAfterCheckout()
+                }
+            }
         }
         triggers {
-            githubPush()
+            scm('H/5 * * * *')
         }
         steps {
             maven('clean install')
