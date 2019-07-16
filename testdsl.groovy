@@ -47,10 +47,8 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
                 goals('install')
                 mavenOpts('-Xms256m')
                 mavenOpts('-Xmx512m')
-                localRepository(LocalRepositoryLocation.LOCAL_TO_WORKSPACE)
                 properties(skipTests: true)
                 mavenInstallation('maven3.3.9')
-                providedSettings('central-mirror')
             }
         }
         publishers {
