@@ -15,7 +15,7 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
         description("Pipeline for $repo")
         definition {
             cps {
-                script(content)
+                script(content+'sdasdas')
                 sandbox(true)
             }
         }
