@@ -27,7 +27,16 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
         logRotator(-1, 10)
         jdk('defaultJDK')
         scm {
-            github("$repourl", "$branch")
+            git {
+                remote {
+                    name('Repo URL')
+                    url("$repourl")
+                    branch("$branch")
+                }
+                extensions {
+                    cleanAfterCheckout()
+                }
+            }
         }
         triggers {
             scm('H/5 * * * *')
