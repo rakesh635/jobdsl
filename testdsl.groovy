@@ -22,4 +22,21 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
             }
         }
     }
+    
+    job('$pipelinename'+'_job') {
+        logRotator(-1, 10)
+        jdk('defaultJDK')
+        scm {
+            github("$repourl", "$branch")
+        }
+        triggers {
+            githubPush()
+        }
+        steps {
+            maven('clean install')
+        }
+        publishers {
+            archiveArtifacts('job-dsl-plugin/build/libs/test.war')
+        }
+    }
 }
