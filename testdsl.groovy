@@ -27,7 +27,7 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
         logRotator(-1, 10)
         jdk('defaultJDK')
         scm {
-            github("$repo", "$branch")
+            github("$repourl", "$branch")
         }
         triggers {
             scm('H/5 * * * *')
