@@ -5,7 +5,7 @@ if("$LANG" == "PHP" || "$LANG" == "php")
 else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
 {
     def content = readFileFromWorkspace('java/Jenkinsfile')
-    content.replaceAll('__GITURL__',"$repourl")
+    content.replaceAll('--REPOURL--',"$repourl")
     pipelineJob("$pipelinename")
     {
         def repo = "$repourl"
