@@ -14,6 +14,7 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
         definition {
             cps {
                 script(readFileFromWorkspace('java/Jenkinsfile'))
+                sandbox(boolean sandbox = true)
             }
         }
     }
