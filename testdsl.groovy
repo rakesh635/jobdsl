@@ -26,6 +26,7 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
     job("$pipelinename"+"_job") {
         logRotator(-1, 10)
         jdk('defaultJDK')
+        maven('maven3.3.9')
         scm {
             git {
                 remote {
