@@ -30,7 +30,7 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
             git {
                 remote {
                     name('Repo URL')
-                    url("$repourl")
+                    url('$repo')
                 }
                 extensions {
                     cleanAfterCheckout()
