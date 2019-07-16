@@ -23,7 +23,7 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
         }
     }
     
-    job('$pipelinename'+'_job') {
+    job("$pipelinename"+"_job") {
         logRotator(-1, 10)
         jdk('defaultJDK')
         scm {
