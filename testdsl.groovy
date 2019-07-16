@@ -2,7 +2,7 @@ if("$LANG" == "PHP" || "$LANG" == "php")
 {
     
 }
-elseif("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
+else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
 {
     pipelineJob("$pipelinename")
     {
