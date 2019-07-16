@@ -6,6 +6,8 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
 {
     def Jenkinsfile = readFileFromWorkspace('java/Jenkinsfile')
     Jenkinsfile = Jenkinsfile.replaceAll('--REPOURL--',"$repourl")
+    Jenkinsfile = Jenkinsfile.replaceAll('--REPOBRANCH--',"$branch")
+    
     pipelineJob("$pipelinename")
     {
         def repo = "$repourl"
