@@ -26,7 +26,6 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
     job("$pipelinename"+"_job") {
         logRotator(-1, 10)
         jdk('defaultJDK')
-        maven('maven3.3.9')
         scm {
             git {
                 remote {
@@ -43,7 +42,16 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
             scm('H/5 * * * *')
         }
         steps {
-            maven('clean install')
+            maven {
+                goals('clean')
+                goals('install')
+                mavenOpts('-Xms256m')
+                mavenOpts('-Xmx512m')
+                localRepository(LocalRepositoryLocation.LOCAL_TO_WORKSPACE)
+                properties(skipTests: true)
+                mavenInstallation('maven3.3.9')
+                providedSettings('central-mirror')
+            }
         }
         publishers {
             archiveArtifacts('job-dsl-plugin/build/libs/test.war')
