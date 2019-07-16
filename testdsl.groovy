@@ -1,6 +1,26 @@
 if("$LANG" == "PHP" || "$LANG" == "php")
 {
-    
+    job("$pipelinename"+"_phpjob") {
+        logRotator(-1, 10)
+        scm {
+            git {
+                remote {
+                    name('Repo URL')
+                    url("$repourl")
+                    branch("$branch")
+                }
+                extensions {
+                    cleanAfterCheckout()
+                }
+            }
+        }
+        triggers {
+            scm('H/5 * * * *')
+        }
+        steps {
+            sh "echo 'hi'"
+        }
+    }
 }
 else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
 {
