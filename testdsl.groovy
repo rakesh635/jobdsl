@@ -18,7 +18,7 @@ if("$LANG" == "PHP" || "$LANG" == "php")
             scm('H/5 * * * *')
         }
         steps {
-            sh "echo 'hi'"
+            
         }
     }
 }
