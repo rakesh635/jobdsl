@@ -15,7 +15,7 @@ pipeline {
         }
         stage ('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "--REPOURL--"]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/--REPOBRANCH--']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "--REPOURL--"]]])
             }
         }
         stage ('Compile') {
