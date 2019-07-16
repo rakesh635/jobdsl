@@ -52,7 +52,7 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
             }
         }
         publishers {
-            archiveArtifacts('job-dsl-plugin/build/libs/test.war')
+            archiveArtifacts('target/hello-world-war-1.0.0.war')
         }
     }
 }
