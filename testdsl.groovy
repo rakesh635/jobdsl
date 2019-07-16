@@ -12,15 +12,8 @@ elseif("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
         }
         description("Pipeline for $repo")
         definition {
-            cpsScm {
-                scm {
-                    git {
-                        remote { url(repo) }
-                        branches('master', '**/feature*')
-                        scriptPath('misc/Jenkinsfile.v2')
-                        extensions { }  // required as otherwise it may try to tag the repo, which you may not want
-                    }
-                }
+            cps {
+                script(readFileFromWorkspace('java/Jenkinsfile'))
             }
         }
     }
