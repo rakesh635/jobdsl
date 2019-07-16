@@ -4,11 +4,8 @@ if("$LANG" == "PHP" || "$LANG" == "php")
 }
 else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
 {
-    def content = readFileFromWorkspace('java/Jenkinsfile')
-    println(content);
-    content = content.replaceAll('--REPOURL--',"$repourl")
-    println(content);
-    println("$repourl");
+    def Jenkinsfile = readFileFromWorkspace('java/Jenkinsfile')
+    Jenkinsfile = Jenkinsfile.replaceAll('--REPOURL--',"$repourl")
     pipelineJob("$pipelinename")
     {
         def repo = "$repourl"
@@ -18,7 +15,7 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
         description("Pipeline for $repo")
         definition {
             cps {
-                script(content+'sdasdas')
+                script(Jenkinsfile)
                 sandbox(true)
             }
         }
