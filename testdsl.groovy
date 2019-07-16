@@ -15,7 +15,7 @@ else if("$LANG" == "Java" || "$LANG" == "JAVA" || "$LANG" == "java")
         description("Pipeline for $repo")
         definition {
             cps {
-                script(readFileFromWorkspace('java/Jenkinsfile'))
+                script(content)
                 sandbox(true)
             }
         }
